@@ -53,7 +53,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_URL << 'EOF'
           sudo docker start postgres_db
-          sudo docker stop ${{ secrets.PROJECT_NAME }}
+          sudo docker stop ${{ secrets.PROJECT_NAME }} || true
 
           sudo docker rm ${{ secrets.PROJECT_NAME }} || true
           sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }} || true
