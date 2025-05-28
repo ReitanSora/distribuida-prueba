@@ -47,6 +47,7 @@ export class ServicesService {
     try {
       const res = await fetch('https://api.thecatapi.com/v1/images/search');
       const response = await res.json();
+      console.log('a');
       return response;
     } catch (error) {
       console.log(`Error while fetch while fetch random cat image: ${error}`);
